@@ -1,0 +1,22 @@
+# Presentation for the SBEE 26
+
+- Intro to endpoint estimation
+  - How does it work
+  - What is it used for
+  - Potential for calibration of trees
+- Intro to fossil record
+  - Incomplete, fragmentary
+  - But lots of info
+- How to use the fossil record to estimate endpoints
+  - Usage of Bayesian inference
+- The `StratIntervals.jl` package
+  - The three-par Beta distribution
+    - What are its advantages and limitation
+  - Using the four-par Beta
+- Testing framework:
+  - Simulations:
+    - Testing the inference for different sizes of datasets
+    - Correct/incorrect & informative/uninformative priors
+    - The effects of $\alpha$ and $\beta$
+  - Empirical:
+    = The origins of Ostariophysi
