@@ -9,93 +9,131 @@
 
 
 \begin{document}
-  \maketitle
+\maketitle
 
-  \begin{frame}
-    \frametitle{What are Stratigraphic Intervals?} \pause
-    \begin{itemize}
-      \item The range in which a species/lineage exists in time; \pause
-      \item Can be measured in time or column depth; \pause
-      \item Useful for: \pause
-      \begin{itemize}
-        \item Calibrating phylogenies; \pause
-        \item Calculating evolutionary rates;
-      \end{itemize}
-    \end{itemize}
-  \end{frame}
+\begin{frame}
+	\frametitle{What are Stratigraphic Intervals?} \pause
+	\begin{itemize}
+		\item The range in which a species/lineage exists in time; \pause
+		\item Can be measured in time or column depth; \pause
+		\item Useful for: \pause
+		      \begin{itemize}
+			      \item Calibrating phylogenies; \pause
+			      \item Calculating evolutionary rates;
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
 
-  \begin{frame}
-    \frametitle{How do we determine a stratigraphic interval?} \pause
-    \begin{itemize}
-      \item Using the fossil record! \pause
-      \item However, the fossil record is very incomplete; \pause
-      \item But there is still loads of information there;
-    \end{itemize}
-  \end{frame}
+\begin{frame}
+	\frametitle{How do we determine a stratigraphic interval?} \pause
+	\begin{itemize}
+		\item Using the fossil record! \pause
+		\item However, the fossil record is very incomplete; \pause
+		\item But there is still loads of information there;
+	\end{itemize}
+\end{frame}
 
-  \begin{frame}
-    \emph{*insert image of stratigraphic intervals of ammonites here*}
+\begin{frame}
+	\emph{*insert image of stratigraphic intervals of ammonites here*}
 
-    \begin{itemize}
-      \item $\theta_1$: Origin of lineage
-      \item $\theta_2$: Extinction of lineage
-    \end{itemize} \pause
+	\begin{itemize}
+		\item $\theta_1$: Origin of lineage
+		\item $\theta_2$: Extinction of lineage
+	\end{itemize} \pause
 
-    \begin{itemize}
-      \item FAD: First Appearance Datum
-      \item LAD: Last Appearance Datum
-    \end{itemize} \pause
+	\begin{itemize}
+		\item FAD: First Appearance Datum
+		\item LAD: Last Appearance Datum
+	\end{itemize} \pause
 
-    The remainder fossils are useful to understand the underlying distribution.
-  \end{frame}
+	The remainder fossils are useful to understand the underlying distribution.
+\end{frame}
 
-  \begin{frame}
-    \frametitle{Using Bayesian inference to estimate endpoints}
+\begin{frame}
+	\frametitle{Using Bayesian inference to estimate endpoints} \pause
 
-    \begin{equation}
-      P(\theta\cdot|D) = \frac{P(\theta\cdot)P(D|\theta\cdot)}{\int_{\Theta}P(\theta)P(D|\theta)d\theta}
-      \label{eq:bayes-theorem}
-    \end{equation} \pause
+	Bayes Theorem:
+	\begin{equation}
+		P(\theta\cdot|D) = \frac{P(\theta\cdot)P(D|\theta\cdot)}{\int_{\Theta}P(\theta)P(D|\theta)d\theta}
+		\label{eq:bayes-theorem}
+	\end{equation} \pause
 
-    \begin{itemize}
-      \item $P(\theta\cdot)$: prior distribution \pause
-      \item $P(D|\theta\cdot)$: likelihood function \pause
-      \item $P(\theta\cdot|D)$: posterior distribution \pause
-    \end{itemize}
+	\begin{itemize}
+		\item $P(\theta\cdot)$: prior distribution \pause
+		\item $P(D|\theta\cdot)$: likelihood function \pause
+		\item $P(\theta\cdot|D)$: posterior distribution \pause
+	\end{itemize}
 
-    Parameters of interest: $\theta_1$ and $\theta_2$; \pause
+	Parameters of interest: $\theta_1$ and $\theta_2$; \pause
 
-    We need some likelihood function that encodes endpoints as parameters.
-  \end{frame}
+	We need some likelihood function that encodes endpoints as parameters.
+\end{frame}
 
-  \begin{frame}
-    \frametitle{The StratIntervals.jl package}
+\begin{frame}
+	\frametitle{The StratIntervals.jl package} \pause
 
-    Likelihood: Three-parameter Beta distribution (ref.)
-    \begin{equation}
-      f(\tau|\lambda,\theta_1,\theta_2) = 
-        \begin{cases}
-          \frac{(\theta_1 - \tau)^{-\lambda}}{(\theta_1 - \theta_2)^{1-\lambda}B(1, 1-\lambda)} &\text{if} \lambda \leq 0 \\
-          \frac{(\tau - \theta_2)^{\lambda}}{(\theta_1 - \theta_2)^{1+\lambda}B(1+\lambda, 1)} &\text{if} \lambda > 0
-        \end{cases}
-      \label{eq:three-par-beta}
-    \end{equation}
+	Likelihood: Three-parameter Beta distribution (ref.)
+	\begin{equation}
+		f(\tau|\lambda,\theta_1,\theta_2) =
+		\begin{cases}
+			\frac{(\theta_1 - \tau)^{-\lambda}}{(\theta_1 - \theta_2)^{1-\lambda}B(1, 1-\lambda)} & \text{if} \lambda \leq 0 \\
+			\frac{(\tau - \theta_2)^{\lambda}}{(\theta_1 - \theta_2)^{1+\lambda}B(1+\lambda, 1)}  & \text{if} \lambda > 0
+		\end{cases}
+		\label{eq:three-par-beta}
+	\end{equation} \pause
 
-    Usage of MCMC algorithms provided by Turing (ref.);
+	Usage of MCMC algorithms provided by Turing (ref.); \pause
 
-    \emph{*insert GIF of three-par beta graph examples*}
-  \end{frame}
+	\emph{*insert GIF of three-par beta graph examples*}
+\end{frame}
 
-  \begin{frame}
-    \frametitle{Using four parameters}
-    \begin{equation}
-      f(\tau|\lambda,\theta_1,\theta_2) = \frac{(\theta_1 - \tau)^{\alpha-\beta}}{(\theta_1 - \theta_2)^{\alpha+\beta-1}B(\alpha, \beta)}
-    \end{equation}
+\begin{frame}
+	\frametitle{Using four parameters}
+	\begin{equation}
+		f(\tau|\lambda,\theta_1,\theta_2) = \frac{(\theta_1 - \tau)^{\alpha-\beta}}{(\theta_1 - \theta_2)^{\alpha+\beta-1}B(\alpha, \beta)}
+	\end{equation}
 
-    More parameters = harder to converge \pause
+	More parameters = harder to converge \pause
 
-    But greater variety of curves!
+	But greater variety of curves!
 
-    \emph{*insert GIF of four-par beta graph examples*}
-  \end{frame}
+	\emph{*insert GIF of four-par beta graph examples*}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Objectives of this work} \pause
+
+	Test the inference power of the four-parameter Beta distribution in endpoint estimation \pause
+
+	\begin{itemize}
+		\item Does it converge as easily as the three-parameter variant? \pause
+		\item Can it estimate endpoints correctly in a wider range of scenarios? \pause
+		\item How priors influence the posterior distribution?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Experimental framework} \pause
+
+	\textbf{Simulations:} \pause
+	\begin{itemize}
+		\item $\theta_1 =$ 150 MA, $\theta_2 =$ 100 MA; \pause
+		\item $\alpha$ and $\beta$ varying between 1, 2, and 10; \pause
+		\item Sample size varying between 10, 50, 100, 200 and 500 samples. \pause
+	\end{itemize}
+
+	We tested: \pause
+	\begin{itemize}
+		\item Sampling from only one or both endpoints; \pause
+		\item Correct and incorrect ($\mu$), informative and uninformative ($\sigma$) priors; \pause
+		\item Measures of mean, inter-quartile range (IQR) and mean squared errors (MSE) of posteriors;
+	\end{itemize}
+
+	\textbf{Empirical dataset:} \pause
+	\begin{itemize}
+		\item Orders of Ostariophysi; \pause
+		      % \item The origin of Amniota; \pause
+		\item Both unfiltered and filtered for duplicates;
+	\end{itemize}
+\end{frame}
 \end{document}
