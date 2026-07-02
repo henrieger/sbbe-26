@@ -19,4 +19,4 @@
     - Correct/incorrect & informative/uninformative priors
     - The effects of $\alpha$ and $\beta$
   - Empirical:
-    = The origins of Ostariophysi
+    - The origins of Ostariophysi

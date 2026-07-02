@@ -1,0 +1,101 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\title{A Comparative Analysis of Different Models for Bayesian Inference of Stratigraphic Intervals}
+\author{Henrique L. Rieger \& Gustavo A. Ballen}
+\institute{Instituto de Biociências -- Universidade Estadual Paulista ``Júlio de Mesquita Filho''}
+\date{}
+
+
+\begin{document}
+  \maketitle
+
+  \begin{frame}
+    \frametitle{What are Stratigraphic Intervals?} \pause
+    \begin{itemize}
+      \item The range in which a species/lineage exists in time; \pause
+      \item Can be measured in time or column depth; \pause
+      \item Useful for: \pause
+      \begin{itemize}
+        \item Calibrating phylogenies; \pause
+        \item Calculating evolutionary rates;
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{How do we determine a stratigraphic interval?} \pause
+    \begin{itemize}
+      \item Using the fossil record! \pause
+      \item However, the fossil record is very incomplete; \pause
+      \item But there is still loads of information there;
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \emph{*insert image of stratigraphic intervals of ammonites here*}
+
+    \begin{itemize}
+      \item $\theta_1$: Origin of lineage
+      \item $\theta_2$: Extinction of lineage
+    \end{itemize} \pause
+
+    \begin{itemize}
+      \item FAD: First Appearance Datum
+      \item LAD: Last Appearance Datum
+    \end{itemize} \pause
+
+    The remainder fossils are useful to understand the underlying distribution.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Using Bayesian inference to estimate endpoints}
+
+    \begin{equation}
+      P(\theta\cdot|D) = \frac{P(\theta\cdot)P(D|\theta\cdot)}{\int_{\Theta}P(\theta)P(D|\theta)d\theta}
+      \label{eq:bayes-theorem}
+    \end{equation} \pause
+
+    \begin{itemize}
+      \item $P(\theta\cdot)$: prior distribution \pause
+      \item $P(D|\theta\cdot)$: likelihood function \pause
+      \item $P(\theta\cdot|D)$: posterior distribution \pause
+    \end{itemize}
+
+    Parameters of interest: $\theta_1$ and $\theta_2$; \pause
+
+    We need some likelihood function that encodes endpoints as parameters.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{The StratIntervals.jl package}
+
+    Likelihood: Three-parameter Beta distribution (ref.)
+    \begin{equation}
+      f(\tau|\lambda,\theta_1,\theta_2) = 
+        \begin{cases}
+          \frac{(\theta_1 - \tau)^{-\lambda}}{(\theta_1 - \theta_2)^{1-\lambda}B(1, 1-\lambda)} &\text{if} \lambda \leq 0 \\
+          \frac{(\tau - \theta_2)^{\lambda}}{(\theta_1 - \theta_2)^{1+\lambda}B(1+\lambda, 1)} &\text{if} \lambda > 0
+        \end{cases}
+      \label{eq:three-par-beta}
+    \end{equation}
+
+    Usage of MCMC algorithms provided by Turing (ref.);
+
+    \emph{*insert GIF of three-par beta graph examples*}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Using four parameters}
+    \begin{equation}
+      f(\tau|\lambda,\theta_1,\theta_2) = \frac{(\theta_1 - \tau)^{\alpha-\beta}}{(\theta_1 - \theta_2)^{\alpha+\beta-1}B(\alpha, \beta)}
+    \end{equation}
+
+    More parameters = harder to converge \pause
+
+    But greater variety of curves!
+
+    \emph{*insert GIF of four-par beta graph examples*}
+  \end{frame}
+\end{document}
