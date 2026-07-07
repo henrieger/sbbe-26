@@ -17,3 +17,5 @@ wheels/
 *.pdf
 *.snm
 *.toc
+*.synctex.gz
+svg-inkscape/

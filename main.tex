@@ -1,6 +1,8 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{svg}
 
 \title{A Comparative Analysis of Different Models for Bayesian Inference of Stratigraphic Intervals}
 \author{Henrique L. Rieger \& Gustavo A. Ballen}
@@ -135,5 +137,100 @@
 		      % \item The origin of Amniota; \pause
 		\item Both unfiltered and filtered for duplicates;
 	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Effects of parameters $\alpha$ and $\beta$} \pause
+
+	\centering $\alpha=1, \beta=1$ \pause
+
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			4 parameters: \pause
+
+			\includesvg[width=\textwidth]{assets/alpha_1_beta_1_four.svg} \pause
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			3 parameters: \pause
+
+			\includesvg[width=\textwidth]{assets/alpha_1_beta_1_three.svg}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Effects of parameters $\alpha$ and $\beta$}
+
+	\centering $\alpha=2, \beta=2$
+
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			4 parameters:
+
+			\includesvg[width=\textwidth]{assets/alpha_2_beta_2_four.svg}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			3 parameters:
+
+			\includesvg[width=\textwidth]{assets/alpha_2_beta_2_three.svg}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Effects of parameters $\alpha$ and $\beta$}
+
+	\centering $\alpha=10, \beta=10$
+
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			4 parameters:
+
+			\includesvg[width=\textwidth]{assets/alpha_10_beta_10_four.svg}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			3 parameters:
+
+			\includesvg[width=\textwidth]{assets/alpha_10_beta_10_three.svg}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Effects of parameters $\alpha$ and $\beta$}
+
+	\centering $\alpha=10, \beta=2$
+
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			4 parameters:
+
+			\includesvg[width=\textwidth]{assets/alpha_10_beta_2_four.svg}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			3 parameters:
+
+			\includesvg[width=\textwidth]{assets/alpha_10_beta_2_three.svg}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Effects of parameters $\alpha$ and $\beta$}
+
+	\centering $\alpha=10, \beta=1$
+
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			4 parameters:
+
+			\includesvg[width=\textwidth]{assets/alpha_10_beta_1_four.svg}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			3 parameters:
+
+			\includesvg[width=\textwidth]{assets/alpha_10_beta_1_three.svg}
+		\end{column}
+	\end{columns}
 \end{frame}
 \end{document}

@@ -15,8 +15,8 @@
   - Using the four-par Beta
 - Testing framework:
   - Simulations:
+    - The effects of $\alpha$ and $\beta$ when everything is correct
     - Testing the inference for different sizes of datasets
     - Correct/incorrect & informative/uninformative priors
-    - The effects of $\alpha$ and $\beta$
   - Empirical:
     - The origins of Ostariophysi
