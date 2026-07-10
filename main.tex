@@ -36,6 +36,7 @@
 \end{frame}
 
 \begin{frame}
+	% TODO
 	\emph{*insert image of stratigraphic intervals of ammonites here*}
 
 	\begin{itemize}
@@ -86,6 +87,7 @@
 
 	Usage of MCMC algorithms provided by Turing (ref.); \pause
 
+	% TODO
 	\emph{*insert GIF of three-par beta graph examples*}
 \end{frame}
 
@@ -99,6 +101,7 @@
 
 	But greater variety of curves!
 
+	% TODO
 	\emph{*insert GIF of four-par beta graph examples*}
 \end{frame}
 
@@ -133,9 +136,7 @@
 
 	\textbf{Empirical dataset:} \pause
 	\begin{itemize}
-		\item Orders of Ostariophysi; \pause
-		      % \item The origin of Amniota; \pause
-		\item Both unfiltered and filtered for duplicates;
+		\item Orders of Ostariophysi;
 	\end{itemize}
 \end{frame}
 
@@ -398,5 +399,102 @@
 			\includesvg[width=\textwidth]{assets/theta2_2_2_mse_three_1.svg}
 		\end{column}
 	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Empirical example: superorder Ostariophysi} \pause
+
+	Who are the ostariophysins? \pause
+
+	Superorder of freshwater bony fish \pause
+
+	\begin{itemize}
+		\item Characiformes (pacus and piranhas);
+		\item Siluriformes (catfishes and plecos);
+		\item Gymnotiformes (electric fish);
+		\item Cypriniformes (carps);
+		\item Gonorynchiformes (milkfish);
+	\end{itemize} \pause
+
+	Also part of the greater clade Otocephala, which includes:
+	\begin{itemize}
+		\item Clupeomorpha (anchovies);
+		\item Alepocephali (nakedheads);
+	\end{itemize} \pause
+
+	% TODO
+	\emph{*insert Otocephala phylogeny with pictures*}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What we tested} \pause
+
+	\begin{itemize}
+		\item The origins of each order (except Gymnotiformes); \pause
+		\item The origins of Ostariophysi and Otocephala as a whole; \pause
+		\item Parameter $\theta_2$ (time of extinction) always fixed in the present; \pause
+		\item Both using all fossils or using filters for time and locality; \pause
+	\end{itemize}
+
+	All data was sampled from the PaleoBiology DataBase (ref);
+\end{frame}
+
+\begin{frame}
+	\frametitle{Results} \pause
+
+	\begin{itemize}
+		\item All analyses converged (ESS > 1000;); \pause
+		      \begin{itemize}
+			      \item Except for Clupeomorpha and Gonorynchiformes when using four parameters (ESS > 400); \pause
+		      \end{itemize}
+		\item Little to no difference comparing datasets with only unique and duplicate samples; \pause
+		\item Posterior probabilities and AICc indicate the four-parameter model as the best to fit the data; \pause
+		      \begin{itemize}
+			      \item Except for two cases: Characiformes and ...; \pause
+		      \end{itemize}
+		\item Almost all groups with origins predicted in the Late Jurassic-Early Cretaceous;
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Results}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Results}
+
+	\includesvg[width=\textwidth]{assets/characiformes_four.svg}
+	\includesvg[width=\textwidth]{assets/characiformes_three.svg}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Results}
+
+	% TODO
+	\emph{*insert comparison of Clupeomorpha*}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Results}
+
+	% TODO
+	\emph{*insert comparison of Ostariophysi and Otocephala*}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Conclusions} \pause
+
+	\begin{itemize}
+		\item The four parameter distribution is more versatile and models a wider range of fossil distributions; \pause
+		\item It also shows convergence similar to that of three parameters, even when the latter could be used instead; \pause
+		\item Wider, less informative priors are better for inference with low impact on correctness.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering \huge Thank you!
+
+	% TODO
+	\emph{*insert QR code with references*}
 \end{frame}
 \end{document}
