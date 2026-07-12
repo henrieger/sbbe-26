@@ -75,34 +75,43 @@
 \begin{frame}
 	\frametitle{The StratIntervals.jl package} \pause
 
-	Likelihood: Three-parameter Beta distribution (ref.)
-	\begin{equation}
-		f(\tau|\lambda,\theta_1,\theta_2) =
-		\begin{cases}
-			\frac{(\theta_1 - \tau)^{-\lambda}}{(\theta_1 - \theta_2)^{1-\lambda}B(1, 1-\lambda)} & \text{if} \lambda \leq 0 \\
-			\frac{(\tau - \theta_2)^{\lambda}}{(\theta_1 - \theta_2)^{1+\lambda}B(1+\lambda, 1)}  & \text{if} \lambda > 0
-		\end{cases}
-		\label{eq:three-par-beta}
-	\end{equation} \pause
-
-	Usage of MCMC algorithms provided by Turing (ref.); \pause
-
 	% TODO
 	\emph{*insert GIF of three-par beta graph examples*}
+
+	Likelihood: Three-parameter Beta distribution (ref.):
+  \begin{itemize}
+    \item $\theta_1$ and $\theta_2$: endpoints; \pause
+    \item $lambda$: "skewness"; \pause
+  \end{itemize}
+	% \begin{equation}
+	% 	f(\tau|\lambda,\theta_1,\theta_2) =
+	% 	\begin{cases}
+	% 		\frac{(\theta_1 - \tau)^{-\lambda}}{(\theta_1 - \theta_2)^{1-\lambda}B(1, 1-\lambda)} & \text{if} \lambda \leq 0 \\
+	% 		\frac{(\tau - \theta_2)^{\lambda}}{(\theta_1 - \theta_2)^{1+\lambda}B(1+\lambda, 1)}  & \text{if} \lambda > 0
+	% 	\end{cases}
+	% 	\label{eq:three-par-beta}
+	% \end{equation} \pause
+
+	Usage of MCMC algorithms provided by Turing (ref.);
 \end{frame}
 
 \begin{frame}
 	\frametitle{Using four parameters}
-	\begin{equation}
-		f(\tau|\lambda,\theta_1,\theta_2) = \frac{(\theta_1 - \tau)^{\alpha-\beta}}{(\theta_1 - \theta_2)^{\alpha+\beta-1}B(\alpha, \beta)}
-	\end{equation}
+	% \begin{equation}
+	%    f(\tau|\alpha, \beta,\theta_1,\theta_2) = \frac{(\theta_1 - \tau)^{\alpha-\beta}}{(\theta_1 - \theta_2)^{\alpha+\beta-1}B(\alpha, \beta)}
+	% \end{equation}
+
+	% TODO
+	\emph{*insert GIF of four-par beta graph examples*}
+
+  Besides $\theta_1$ and $\theta_2$ \pause
+  \begin{itemize}
+    \item Going back to $\alpha$ and $\beta$ for shape; \pause
+  \end{itemize}
 
 	More parameters = harder to converge \pause
 
 	But greater variety of curves!
-
-	% TODO
-	\emph{*insert GIF of four-par beta graph examples*}
 \end{frame}
 
 \begin{frame}
@@ -118,9 +127,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Experimental framework} \pause
+	\frametitle{Tests with simulated datasets} \pause
 
-	\textbf{Simulations:} \pause
 	\begin{itemize}
 		\item $\theta_1 =$ 150 MA, $\theta_2 =$ 100 MA; \pause
 		\item $\alpha$ and $\beta$ varying between 1, 2, and 10; \pause
@@ -129,54 +137,48 @@
 
 	We tested: \pause
 	\begin{itemize}
-		\item Sampling from only one or both endpoints; \pause
-		\item Correct and incorrect ($\mu$), informative and uninformative ($\sigma$) priors; \pause
+		\item Correct and incorrect ($\mu$), informative and uninformative ($\sigma$) Normal priors; \pause
 		\item Measures of mean, inter-quartile range (IQR) and mean squared errors (MSE) of posteriors;
-	\end{itemize}
-
-	\textbf{Empirical dataset:} \pause
-	\begin{itemize}
-		\item Orders of Ostariophysi;
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Effects of parameters $\alpha$ and $\beta$} \pause
+	\frametitle{Effects of parameters $\alpha$ and $\beta$}
 
-	\centering $\alpha=1, \beta=1$ \pause
+	\centering $\alpha=1, \beta=1$
 
 	\begin{columns}
 		\begin{column}{0.45\textwidth}
-			4 parameters: \pause
+			4 parameters:
 
-			\includesvg[width=\textwidth]{assets/alpha_1_beta_1_four.svg} \pause
+			\includesvg[width=\textwidth]{assets/alpha_1_beta_1_four.svg}
 		\end{column}
 		\begin{column}{0.45\textwidth}
-			3 parameters: \pause
+			3 parameters:
 
 			\includesvg[width=\textwidth]{assets/alpha_1_beta_1_three.svg}
 		\end{column}
 	\end{columns}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Effects of parameters $\alpha$ and $\beta$}
-
-	\centering $\alpha=2, \beta=2$
-
-	\begin{columns}
-		\begin{column}{0.45\textwidth}
-			4 parameters:
-
-			\includesvg[width=\textwidth]{assets/alpha_2_beta_2_four.svg}
-		\end{column}
-		\begin{column}{0.45\textwidth}
-			3 parameters:
-
-			\includesvg[width=\textwidth]{assets/alpha_2_beta_2_three.svg}
-		\end{column}
-	\end{columns}
-\end{frame}
+% \begin{frame}
+% 	\frametitle{Effects of parameters $\alpha$ and $\beta$}
+%
+% 	\centering $\alpha=2, \beta=2$
+%
+% 	\begin{columns}
+% 		\begin{column}{0.45\textwidth}
+% 			4 parameters:
+%
+% 			\includesvg[width=\textwidth]{assets/alpha_2_beta_2_four.svg}
+% 		\end{column}
+% 		\begin{column}{0.45\textwidth}
+% 			3 parameters:
+%
+% 			\includesvg[width=\textwidth]{assets/alpha_2_beta_2_three.svg}
+% 		\end{column}
+% 	\end{columns}
+% \end{frame}
 
 \begin{frame}
 	\frametitle{Effects of parameters $\alpha$ and $\beta$}
@@ -216,24 +218,24 @@
 	\end{columns}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Effects of parameters $\alpha$ and $\beta$}
-
-	\centering $\alpha=10, \beta=1$
-
-	\begin{columns}
-		\begin{column}{0.45\textwidth}
-			4 parameters:
-
-			\includesvg[width=\textwidth]{assets/alpha_10_beta_1_four.svg}
-		\end{column}
-		\begin{column}{0.45\textwidth}
-			3 parameters:
-
-			\includesvg[width=\textwidth]{assets/alpha_10_beta_1_three.svg}
-		\end{column}
-	\end{columns}
-\end{frame}
+% \begin{frame}
+% 	\frametitle{Effects of parameters $\alpha$ and $\beta$}
+%
+% 	\centering $\alpha=10, \beta=1$
+%
+% 	\begin{columns}
+% 		\begin{column}{0.45\textwidth}
+% 			4 parameters:
+%
+% 			\includesvg[width=\textwidth]{assets/alpha_10_beta_1_four.svg}
+% 		\end{column}
+% 		\begin{column}{0.45\textwidth}
+% 			3 parameters:
+%
+% 			\includesvg[width=\textwidth]{assets/alpha_10_beta_1_three.svg}
+% 		\end{column}
+% 	\end{columns}
+% \end{frame}
 
 \begin{frame}
 	\frametitle{How priors influence results} \pause
@@ -245,11 +247,11 @@
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
 			Medians
-			\includesvg[width=\textwidth]{assets/theta2_1_1_medians_four.svg} \pause
+			\includesvg[width=\textwidth]{assets/theta2_1_1_medians_four.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
 			IQR
-			\includesvg[width=\textwidth]{assets/theta2_1_1_iqr_four.svg} \pause
+			\includesvg[width=\textwidth]{assets/theta2_1_1_iqr_four.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
 			MSE
@@ -284,7 +286,7 @@
 \begin{frame}
 	\frametitle{How priors influence results}
 
-	\centering $\theta_2, \alpha=2, \beta=2, \mu=0, \sigma=20$
+  \centering $\theta_2,$ \textcolor{red}{$\alpha=2, \beta=2,$} $\mu=0, \sigma=20$
 
 	\centering 4 parameters:
 
@@ -324,7 +326,7 @@
 \begin{frame}
 	\frametitle{How priors influence results}
 
-	\centering $\theta_2, \alpha=2, \beta=2, \mu=20, \sigma=20$
+  \centering $\theta_2, \alpha=2, \beta=2,$ \textcolor{red}{$\mu=20$}, $\sigma=20$
 
 	\centering 4 parameters:
 
@@ -364,7 +366,7 @@
 \begin{frame}
 	\frametitle{How priors influence results}
 
-	\centering $\theta_2, \alpha=2, \beta=2, \mu=20, \sigma=1$
+  \centering $\theta_2, \alpha=2, \beta=2, \mu=20,$ \textcolor{red}{$\sigma=1$}
 
 	\centering 4 parameters:
 
@@ -432,8 +434,9 @@
 	\begin{itemize}
 		\item The origins of each order (except Gymnotiformes); \pause
 		\item The origins of Ostariophysi and Otocephala as a whole; \pause
+    \item Exponential priors; \pause
 		\item Parameter $\theta_2$ (time of extinction) always fixed in the present; \pause
-		\item Both using all fossils or using filters for time and locality; \pause
+		\item Filtering out data with same time range and locality; \pause
 	\end{itemize}
 
 	All data was sampled from the PaleoBiology DataBase (ref);
@@ -445,10 +448,9 @@
 	\begin{itemize}
 		\item All analyses converged (ESS > 1000;); \pause
 		      \begin{itemize}
-			      \item Except for Clupeomorpha and Gonorynchiformes when using four parameters (ESS > 400); \pause
+			      \item Except for Gonorynchiformes when using four parameters (ESS of tail > 400); \pause
 		      \end{itemize}
-		\item Little to no difference comparing datasets with only unique and duplicate samples; \pause
-		\item Posterior probabilities indicate the four-parameter model as the best to fit the data; \pause
+		\item Posterior probabilities (PP) indicate the four-parameter model as the best to fit the data with $\approx100\%$ probability; \pause
 		      \begin{itemize}
 			      \item Except for two cases: Characiformes and Gonorynchiformes; \pause
 		      \end{itemize}
@@ -456,125 +458,125 @@
 	\end{itemize}
 \end{frame}
 
+% \begin{frame}
+% 	\frametitle{Results}
+%
+%   \begin{columns}
+%     \begin{column}{0.45\textwidth}
+%       \centering{
+%         4 params:
+%
+%         MPP: 118.54
+%
+%         95\% CI: 82.19-180.07 MA
+%
+%         PP: 1.56\%
+%       }
+%
+%       \includesvg[width=\textwidth,inkscapelatex=false]{assets/characiformes_four.svg}
+%     \end{column}
+%     \begin{column}{0.45\textwidth}
+%       \centering{
+%         3 params:
+%
+%         MPP: 119.04
+%
+%         95\% CI: 86.56-166.33 MA
+%
+%         PP: 98.44\%
+%       }
+%
+%       \includesvg[width=\textwidth,inkscapelatex=false]{assets/characiformes_three.svg}
+%     \end{column}
+%   \end{columns}
+% \end{frame}
+%
+% \begin{frame}
+% 	\frametitle{Results}
+%
+%   \begin{columns}
+%     \begin{column}{0.45\textwidth}
+%       \centering{
+%         4 params:
+%
+%         MPP: 158.75
+%
+%         95\% CI: 140.98-190.95 MA
+%       }
+%
+%       \includesvg[width=\textwidth,inkscapelatex=false]{assets/clupeomorpha_four.svg}
+%     \end{column}
+%     \begin{column}{0.45\textwidth}
+%       \centering{
+%       3 params:
+%
+%       MPP: 135.15
+%
+%       95\% CI: 134.45-137.13 MA
+%       }
+%
+%       \includesvg[width=\textwidth,inkscapelatex=false]{assets/clupeomorpha_three.svg}
+%     \end{column}
+%   \end{columns}
+% \end{frame}
+
 \begin{frame}
 	\frametitle{Results}
 
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-      \centering{
-        4 params:
-
-        MPP: 118.54
-
-        95\% CI: 82.19-180.07 MA
-
-        PP: 1.56\%
-      }
-
-      \includesvg[width=\textwidth,inkscapelatex=false]{assets/characiformes_four.svg}
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \centering{
-        3 params:
-
-        MPP: 119.04
-
-        95\% CI: 86.56-166.33 MA
-
-        PP: 98.44\%
-      }
-
-      \includesvg[width=\textwidth,inkscapelatex=false]{assets/characiformes_three.svg}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Results}
-
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-      \centering{
-        4 params:
-
-        MPP: 158.75
-
-        95\% CI: 140.98-190.95 MA
-      }
-
-      \includesvg[width=\textwidth,inkscapelatex=false]{assets/clupeomorpha_four.svg}
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \centering{
-      3 params:
-
-      MPP: 135.15
-
-      95\% CI: 134.45-137.13 MA
-      }
-
-      \includesvg[width=\textwidth,inkscapelatex=false]{assets/clupeomorpha_three.svg}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Results}
-
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-      \centering{
-        MPP: 256.04
+  % \begin{columns}
+    % \begin{column}{0.45\textwidth}
+    \centering{
+        MPP: 256.04 MA
 
         95\% CI: 194.48-345.15 MA
       }
 
-      \includesvg[width=\textwidth,inkscapelatex=false]{assets/ostariophysi.svg}
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \centering{
-        MPP: 180.44
-
-        95\% CI: 155.04-226.05 MA
-      }
-
-      \includesvg[width=\textwidth,inkscapelatex=false]{assets/otocephala.svg}
-    \end{column}
-  \end{columns}
+      \includesvg[width=0.7\textwidth,inkscapelatex=false]{assets/ostariophysi.svg}
+    % \end{column}
+    % \begin{column}{0.45\textwidth}
+    %   \centering{
+    %     MPP: 180.44 MA
+    %
+    %     95\% CI: 155.04-226.05 MA
+    %   }
+    %
+    %   \includesvg[width=\textwidth,inkscapelatex=false]{assets/otocephala.svg}
+    % \end{column}
+  % \end{columns}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Results}
-
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-      \centering{
-        4 params:
-
-        MPP: 127.82
-
-        95\% CI: 123.67-142.93 MA
-
-        PP: 8,66\%
-      }
-
-      \includesvg[width=\textwidth,inkscapelatex=false]{assets/gonorynchiformes_four.svg}
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \centering{
-        3 params:
-
-        MPP: 124.83
-
-        95\% CI: 123.61-128.32 MA
-
-        PP: 91,34\%
-      }
-
-      \includesvg[width=\textwidth,inkscapelatex=false]{assets/gonorynchiformes_three.svg}
-    \end{column}
-  \end{columns}
-\end{frame}
+% \begin{frame}
+% 	\frametitle{Results}
+%
+%   \begin{columns}
+%     \begin{column}{0.45\textwidth}
+%       \centering{
+%         4 params:
+%
+%         MPP: 127.82
+%
+%         95\% CI: 123.67-142.93 MA
+%
+%         PP: 8,66\%
+%       }
+%
+%       \includesvg[width=\textwidth,inkscapelatex=false]{assets/gonorynchiformes_four.svg}
+%     \end{column}
+%     \begin{column}{0.45\textwidth}
+%       \centering{
+%         3 params:
+%
+%         MPP: 124.83
+%
+%         95\% CI: 123.61-128.32 MA
+%
+%         PP: 91,34\%
+%       }
+%
+%       \includesvg[width=\textwidth,inkscapelatex=false]{assets/gonorynchiformes_three.svg}
+%     \end{column}
+%   \end{columns}
+% \end{frame}
 
 \begin{frame}
 	\frametitle{Conclusions} \pause
