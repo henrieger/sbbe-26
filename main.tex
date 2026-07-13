@@ -6,11 +6,29 @@
 \usepackage{graphicx}
 \usepackage{animate}
 
-\title{A Comparative Analysis of Different Models for Bayesian Inference of Stratigraphic Intervals}
-\author{Henrique L. Rieger \& Gustavo A. Ballen}
-\institute{Instituto de Biociências -- Universidade Estadual Paulista ``Júlio de Mesquita Filho''}
-\date{}
+\useinnertheme[shadow]{rounded}
+\useoutertheme{infolines}
+\usecolortheme{spruce}
+\setbeamertemplate{itemize item}{\color{teal}\scriptsize$\blacktriangleright$}
+\setbeamertemplate{itemize subitem}{\color{teal}\scriptsize$\blacktriangleright$}
 
+\title[StratIntervals.jl]{A Comparative Analysis of Different Models for Bayesian Inference of Stratigraphic Intervals}
+\author[Rieger \& Ballen]{Henrique L. Rieger \& Gustavo A. Ballen}
+\institute[IBB UNESP]{Instituto de Biociências -- Universidade Estadual Paulista ``Júlio de Mesquita Filho''}
+\date[SBBE 26]{II Congresso da Sociedade Brasileira de Biologia Evolutiva -- 2026}
+\titlegraphic{
+  \begin{columns}
+    \begin{column}{0.3\textwidth}
+      \centering\includegraphics[width=0.5\textwidth]{assets/lbgp.png}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \centering\includegraphics[width=0.4\textwidth]{assets/sbbe.png}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \centering\includegraphics[width=0.5\textwidth]{assets/unesp-horizontal.jpg}
+    \end{column}
+  \end{columns}
+}
 
 \begin{document}
 \maketitle
@@ -176,16 +194,24 @@
 \begin{frame}
 	\frametitle{Effects of parameters $\alpha$ and $\beta$}
 
-	\centering $\alpha=1, \beta=1$
+  \centering{
+    \begin{tabular}{cc}
+      $\alpha$ & $\beta$ \\
+      \hline
+      1 & 1
+    \end{tabular}
+  }
+
+  \vspace{1.5em}
 
 	\begin{columns}
 		\begin{column}{0.45\textwidth}
-			4 parameters:
+			\centering 4 parameters:
 
 			\includesvg[width=\textwidth]{assets/alpha_1_beta_1_four.svg}
 		\end{column}
 		\begin{column}{0.45\textwidth}
-			3 parameters:
+			\centering 3 parameters:
 
 			\includesvg[width=\textwidth]{assets/alpha_1_beta_1_three.svg}
 		\end{column}
@@ -214,16 +240,24 @@
 \begin{frame}
 	\frametitle{Effects of parameters $\alpha$ and $\beta$}
 
-	\centering $\alpha=10, \beta=10$
+  \centering{
+    \begin{tabular}{cc}
+      $\alpha$ & $\beta$ \\
+      \hline
+      10 & 10
+    \end{tabular}
+  }
+
+  \vspace{1.5em}
 
 	\begin{columns}
 		\begin{column}{0.45\textwidth}
-			4 parameters:
+			\centering 4 parameters:
 
 			\includesvg[width=\textwidth]{assets/alpha_10_beta_10_four.svg}
 		\end{column}
 		\begin{column}{0.45\textwidth}
-			3 parameters:
+			\centering 3 parameters:
 
 			\includesvg[width=\textwidth]{assets/alpha_10_beta_10_three.svg}
 		\end{column}
@@ -233,16 +267,24 @@
 \begin{frame}
 	\frametitle{Effects of parameters $\alpha$ and $\beta$}
 
-	\centering $\alpha=10, \beta=2$
+  \centering{
+    \begin{tabular}{cc}
+      $\alpha$ & $\beta$ \\
+      \hline
+      10 & 2 
+    \end{tabular}
+  }
+
+  \vspace{1.5em}
 
 	\begin{columns}
 		\begin{column}{0.45\textwidth}
-			4 parameters:
+			\centering 4 parameters:
 
 			\includesvg[width=\textwidth]{assets/alpha_10_beta_2_four.svg}
 		\end{column}
 		\begin{column}{0.45\textwidth}
-			3 parameters:
+			\centering 3 parameters:
 
 			\includesvg[width=\textwidth]{assets/alpha_10_beta_2_three.svg}
 		\end{column}
@@ -271,21 +313,31 @@
 \begin{frame}
 	\frametitle{How priors influence results} \pause
 
-	\centering $\theta_2, \alpha=1, \beta=1, \mu=0, \sigma=20$
+  \centering{
+    \begin{tabular}{c|cccc}
+      & $\alpha$ & $\beta$ & $\mu$ & $\sigma$ \\
+      \hline
+      $\theta_2$ & 1 & 1 & 0 & 20
+    \end{tabular}
+  }
+
+  \vspace{1.5em}
 
 	\centering 4 parameters: \pause
 
+  \vspace{1em}
+
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
-			Medians
+			\centering Medians
 			\includesvg[width=\textwidth]{assets/theta2_1_1_medians_four.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			IQR
+			\centering IQR
 			\includesvg[width=\textwidth]{assets/theta2_1_1_iqr_four.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			MSE
+			\centering MSE
 			\includesvg[width=\textwidth]{assets/theta2_1_1_mse_four.svg}
 		\end{column}
 	\end{columns}
@@ -294,21 +346,31 @@
 \begin{frame}
 	\frametitle{How priors influence results}
 
-	\centering $\theta_2, \alpha=1, \beta=1, \mu=0, \sigma=20$
+  \centering{
+    \begin{tabular}{c|cccc}
+      & $\alpha$ & $\beta$ & $\mu$ & $\sigma$ \\
+      \hline
+      $\theta_2$ & 1 & 1 & 0 & 20
+    \end{tabular}
+  }
+
+  \vspace{1.5em}
 
 	\centering 3 parameters:
 
+  \vspace{1em}
+
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
-			Medians
+			\centering Medians
 			\includesvg[width=\textwidth]{assets/theta2_1_1_medians_three.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			IQR
+			\centering IQR
 			\includesvg[width=\textwidth]{assets/theta2_1_1_iqr_three.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			MSE
+			\centering MSE
 			\includesvg[width=\textwidth]{assets/theta2_1_1_mse_three.svg}
 		\end{column}
 	\end{columns}
@@ -317,38 +379,64 @@
 \begin{frame}
 	\frametitle{How priors influence results}
 
-  \centering $\theta_2,$ \textcolor{red}{$\alpha=2, \beta=2,$} $\mu=0, \sigma=20$
+  \centering{
+    \begin{tabular}{c|cccc}
+      & $\alpha$ & $\beta$ & $\mu$ & $\sigma$ \\
+      \hline
+      $\theta_2$ & \color{red}{2} & \color{red}{2} & 0 & 20
+    \end{tabular}
+  }
+
+  \vspace{1.5em}
 
 	\centering 4 parameters:
 
+  \vspace{1em}
+
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
-			Medians
+			\centering Medians
 			\includesvg[width=\textwidth]{assets/theta2_2_2_medians_four.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			IQR
+			\centering IQR
 			\includesvg[width=\textwidth]{assets/theta2_2_2_iqr_four.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			MSE
+			\centering MSE
 			\includesvg[width=\textwidth]{assets/theta2_2_2_mse_four.svg}
 		\end{column}
 	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{How priors influence results}
+
+  \centering{
+    \begin{tabular}{c|cccc}
+      & $\alpha$ & $\beta$ & $\mu$ & $\sigma$ \\
+      \hline
+      $\theta_2$ & \color{red}{2} & \color{red}{2} & 0 & 20
+    \end{tabular}
+  }
+
+  \vspace{1.5em}
 
 	\centering 3 parameters:
 
+  \vspace{1em}
+
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
-			Medians
+			\centering Medians
 			\includesvg[width=\textwidth]{assets/theta2_2_2_medians_three.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			IQR
+			\centering IQR
 			\includesvg[width=\textwidth]{assets/theta2_2_2_iqr_three.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			MSE
+			\centering MSE
 			\includesvg[width=\textwidth]{assets/theta2_2_2_mse_three.svg}
 		\end{column}
 	\end{columns}
@@ -357,38 +445,64 @@
 \begin{frame}
 	\frametitle{How priors influence results}
 
-  \centering $\theta_2, \alpha=2, \beta=2,$ \textcolor{red}{$\mu=20$}, $\sigma=20$
+  \centering{
+    \begin{tabular}{c|cccc}
+      & $\alpha$ & $\beta$ & $\mu$ & $\sigma$ \\
+      \hline
+    $\theta_2$ & 2 & 2 & \color{red}{20} & 20
+    \end{tabular}
+  }
+
+  \vspace{1.5em}
 
 	\centering 4 parameters:
 
+  \vspace{1em}
+
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
-			Medians
+			\centering Medians
 			\includesvg[width=\textwidth]{assets/theta2_2_2_medians_four_20.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			IQR
+			\centering IQR
 			\includesvg[width=\textwidth]{assets/theta2_2_2_iqr_four_20.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			MSE
+			\centering MSE
 			\includesvg[width=\textwidth]{assets/theta2_2_2_mse_four_20.svg}
 		\end{column}
 	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{How priors influence results}
+
+  \centering{
+    \begin{tabular}{c|cccc}
+      & $\alpha$ & $\beta$ & $\mu$ & $\sigma$ \\
+      \hline
+    $\theta_2$ & 2 & 2 & \color{red}{20} & 20
+    \end{tabular}
+  }
+
+  \vspace{1.5em}
 
 	\centering 3 parameters:
 
+  \vspace{1em}
+
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
-			Medians
+			\centering Medians
 			\includesvg[width=\textwidth]{assets/theta2_2_2_medians_three_20.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			IQR
+			\centering IQR
 			\includesvg[width=\textwidth]{assets/theta2_2_2_iqr_three_20.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			MSE
+			\centering MSE
 			\includesvg[width=\textwidth]{assets/theta2_2_2_mse_three_20.svg}
 		\end{column}
 	\end{columns}
@@ -397,38 +511,64 @@
 \begin{frame}
 	\frametitle{How priors influence results}
 
-  \centering $\theta_2, \alpha=2, \beta=2, \mu=20,$ \textcolor{red}{$\sigma=1$}
+  \centering{
+    \begin{tabular}{c|cccc}
+      & $\alpha$ & $\beta$ & $\mu$ & $\sigma$ \\
+      \hline
+      $\theta_2$ & 2 & 2 & 20 & \color{red}{1}
+    \end{tabular}
+  }
+
+  \vspace{1.5em}
 
 	\centering 4 parameters:
 
+  \vspace{1em}
+
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
-			Medians
+			\centering Medians
 			\includesvg[width=\textwidth]{assets/theta2_2_2_medians_four_1.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			IQR
+			\centering IQR
 			\includesvg[width=\textwidth]{assets/theta2_2_2_iqr_four_1.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			MSE
+			\centering MSE
 			\includesvg[width=\textwidth]{assets/theta2_2_2_mse_four_1.svg}
 		\end{column}
 	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{How priors influence results}
+
+  \centering{
+    \begin{tabular}{c|cccc}
+      & $\alpha$ & $\beta$ & $\mu$ & $\sigma$ \\
+      \hline
+      $\theta_2$ & 2 & 2 & 20 & \color{red}{1}
+    \end{tabular}
+  }
+
+  \vspace{1.5em}
 
 	\centering 3 parameters:
 
+  \vspace{1em}
+
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
-			Medians
+			\centering Medians
 			\includesvg[width=\textwidth]{assets/theta2_2_2_medians_three_1.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			IQR
+			\centering IQR
 			\includesvg[width=\textwidth]{assets/theta2_2_2_iqr_three_1.svg}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-			MSE
+			\centering MSE
 			\includesvg[width=\textwidth]{assets/theta2_2_2_mse_three_1.svg}
 		\end{column}
 	\end{columns}
@@ -476,15 +616,23 @@
 \begin{frame}
 	\frametitle{What we tested} \pause
 
-	\begin{itemize}
-		\item The origins of each order (except Gymnotiformes); \pause
-		\item The origins of Ostariophysi and Otocephala as a whole; \pause
-    \item Exponential priors; \pause
-		\item Parameter $\theta_2$ (time of extinction) always fixed in the present; \pause
-		\item Filtering out data with same time range and locality; \pause
-	\end{itemize}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \begin{itemize}
+        \item The origins of each order (except Gymnotiformes); \pause
+        \item The origins of Ostariophysi and Otocephala as a whole; \pause
+        \item Exponential priors; \pause
+        \item Parameter $\theta_2$ (time of extinction) always fixed in the present; \pause
+        \item Filtering out data with same time range and locality; \pause
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      All data was sampled from the PaleoBiology DataBase (ref);
+      \vspace{1em}
+      \includegraphics[width=0.8\textwidth]{assets/pbdb.png}
+    \end{column}
+  \end{columns}
 
-	All data was sampled from the PaleoBiology DataBase (ref);
 \end{frame}
 
 \begin{frame}
@@ -571,12 +719,9 @@
   % \begin{columns}
     % \begin{column}{0.45\textwidth}
     \centering{
-        MPP: 256.04 MA
-
-        95\% CI: 194.48-345.15 MA
-      }
-
-      \includesvg[width=0.7\textwidth,inkscapelatex=false]{assets/ostariophysi.svg}
+      \includesvg[width=0.5\textwidth,inkscapelatex=false]{assets/ostariophysi.svg} \\
+      \ $\theta_1$ = 256.04 MA \\ (95\% CI: 194.48 -- 345.15 MA)
+    }
     % \end{column}
     % \begin{column}{0.45\textwidth}
     %   \centering{
@@ -640,15 +785,15 @@
 
     \begin{columns}
       \begin{column}{0.45\textwidth}
-        Acknowledgements:
+        \centering \Large Acknowledgements:
         \begin{tabular}{cc}
           \includegraphics[width=0.45\textwidth]{assets/lbgp.png} & \includegraphics[width=0.45\textwidth]{assets/ppgzoo.png} \\
-          \includegraphics[width=0.45\textwidth]{assets/ibb.png} & \includegraphics[width=0.25\textwidth]{assets/unesp.png}
+          \includegraphics[width=0.45\textwidth]{assets/ibb.png} & \includegraphics[width=0.2\textwidth]{assets/unesp.png}
         \end{tabular}
       \end{column}
       \begin{column}{0.45\textwidth}
         \centering{
-          References:
+          \Large References:
 
           \includegraphics[width=0.4\textwidth]{assets/qrcode.png}
         }
