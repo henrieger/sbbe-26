@@ -19,3 +19,8 @@ wheels/
 *.toc
 *.synctex.gz
 svg-inkscape/
+
+# Manim specific
+media/
+assets/ThreePar*
+assets/FourPar*

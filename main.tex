@@ -3,6 +3,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{svg}
+\usepackage{graphicx}
+\usepackage{animate}
 
 \title{A Comparative Analysis of Different Models for Bayesian Inference of Stratigraphic Intervals}
 \author{Henrique L. Rieger \& Gustavo A. Ballen}
@@ -14,7 +16,13 @@
 \maketitle
 
 \begin{frame}
-	\frametitle{What are Stratigraphic Intervals?} \pause
+	\frametitle{What are Stratigraphic Intervals?}
+  \begin{columns}
+
+  \begin{column}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{assets/paleontologists.jpg} \pause
+  \end{column}
+  \begin{column}{0.45\textwidth}
 	\begin{itemize}
 		\item The range in which a species/lineage exists in time; \pause
 		\item Can be measured in time or column depth; \pause
@@ -24,6 +32,8 @@
 			      \item Calculating evolutionary rates;
 		      \end{itemize}
 	\end{itemize}
+  \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -36,20 +46,31 @@
 \end{frame}
 
 \begin{frame}
-	% TODO
-	\emph{*insert image of stratigraphic intervals of ammonites here*}
+	\frametitle{How do we determine a stratigraphic interval?}
 
-	\begin{itemize}
-		\item $\theta_1$: Origin of lineage
-		\item $\theta_2$: Extinction of lineage
-	\end{itemize} \pause
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \centering\includegraphics[width=\textwidth]{assets/ammonite_stratinterval.png}
+    \end{column} \pause
 
-	\begin{itemize}
-		\item FAD: First Appearance Datum
-		\item LAD: Last Appearance Datum
-	\end{itemize} \pause
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item $\theta_1$: Origin of lineage
+        \item $\theta_2$: Extinction of lineage
+      \end{itemize} \pause
 
-	The remainder fossils are useful to understand the underlying distribution.
+      \vspace{1em}
+
+      \begin{itemize}
+        \item FAD: First Appearance Datum
+        \item LAD: Last Appearance Datum
+      \end{itemize} \pause
+
+      \vspace{1em}
+
+      The remainder fossils are useful to understand the underlying distribution.
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -73,15 +94,20 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{The StratIntervals.jl package} \pause
+	\frametitle{The StratIntervals.jl package}
 
-	% TODO
-	\emph{*insert GIF of three-par beta graph examples*}
+  \centering{
+    \animategraphics
+    [autoplay,loop,width=0.5\textwidth]
+    {15}
+    {assets/ThreePar/}
+    {000}{159}
+  }
 
 	Likelihood: Three-parameter Beta distribution (ref.):
   \begin{itemize}
-    \item $\theta_1$ and $\theta_2$: endpoints; \pause
-    \item $lambda$: "skewness"; \pause
+    \item $\theta_1$ and $\theta_2$: endpoints;
+    \item $\lambda$: "skewness";
   \end{itemize}
 	% \begin{equation}
 	% 	f(\tau|\lambda,\theta_1,\theta_2) =
@@ -101,15 +127,20 @@
 	%    f(\tau|\alpha, \beta,\theta_1,\theta_2) = \frac{(\theta_1 - \tau)^{\alpha-\beta}}{(\theta_1 - \theta_2)^{\alpha+\beta-1}B(\alpha, \beta)}
 	% \end{equation}
 
-	% TODO
-	\emph{*insert GIF of four-par beta graph examples*}
+  \centering{
+    \animategraphics
+    [autoplay,loop,width=0.5\textwidth]
+    {15}
+    {assets/FourPar/}
+    {000}{114}
+  }
 
-  Besides $\theta_1$ and $\theta_2$ \pause
+  Besides $\theta_1$ and $\theta_2$ \
   \begin{itemize}
-    \item Going back to $\alpha$ and $\beta$ for shape; \pause
+    \item Going back to $\alpha$ and $\beta$ for shape;
   \end{itemize}
 
-	More parameters = harder to converge \pause
+	More parameters = harder to converge
 
 	But greater variety of curves!
 \end{frame}
@@ -404,28 +435,42 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Empirical example: superorder Ostariophysi} \pause
+  \onslide<1->{
+    \frametitle{Empirical example: superorder Ostariophysi}
 
-	Who are the ostariophysins? \pause
+    Who are the ostariophysins?
+  }
 
-	Superorder of freshwater bony fish \pause
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \onslide<2->{
+        Superorder of freshwater bony fish
+      }
 
-	\begin{itemize}
-		\item Characiformes (pacus and piranhas);
-		\item Siluriformes (catfishes and plecos);
-		\item Gymnotiformes (electric fish);
-		\item Cypriniformes (carps);
-		\item Gonorynchiformes (milkfish);
-	\end{itemize} \pause
+      \onslide<3->{
+        \begin{itemize}
+          \item Characiformes (pacus and piranhas);
+          \item Siluriformes (catfishes and plecos);
+          \item Gymnotiformes (electric fish);
+          \item Cypriniformes (carps);
+          \item Gonorynchiformes (milkfish);
+        \end{itemize}
+      }
 
-	Also part of the greater clade Otocephala, which includes:
-	\begin{itemize}
-		\item Clupeomorpha (anchovies);
-		\item Alepocephali (nakedheads);
-	\end{itemize} \pause
-
-	% TODO
-	\emph{*insert Otocephala phylogeny with pictures*}
+      \onslide<4->{
+        Also part of the greater clade Otocephala, which includes:
+        \begin{itemize}
+          \item Clupeomorpha (anchovies);
+          \item Alepocephali (slickheads);
+        \end{itemize}
+      }
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \onslide<1->{
+        \includegraphics[width=\textwidth]{assets/phylogeny.pdf}
+      }
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -589,9 +634,25 @@
 \end{frame}
 
 \begin{frame}
-	\centering \huge Thank you!
+  \centering \huge Thank you!
 
-	% TODO
-	\emph{*insert QR code with references*}
+    \vspace{1em}
+
+    \begin{columns}
+      \begin{column}{0.45\textwidth}
+        Acknowledgements:
+        \begin{tabular}{cc}
+          \includegraphics[width=0.45\textwidth]{assets/lbgp.png} & \includegraphics[width=0.45\textwidth]{assets/ppgzoo.png} \\
+          \includegraphics[width=0.45\textwidth]{assets/ibb.png} & \includegraphics[width=0.25\textwidth]{assets/unesp.png}
+        \end{tabular}
+      \end{column}
+      \begin{column}{0.45\textwidth}
+        \centering{
+          References:
+
+          \includegraphics[width=0.4\textwidth]{assets/qrcode.png}
+        }
+      \end{column}
+    \end{columns}
 \end{frame}
 \end{document}
