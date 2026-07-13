@@ -120,23 +120,23 @@
     {15}
     {assets/ThreePar/}
     {000}{159}
+
+    Likelihood: Three-parameter Beta distribution (Wang et al., 2016):
+    \begin{itemize}
+      \item $\theta_1$ and $\theta_2$: endpoints;
+      \item $\lambda$: "skewness";
+    \end{itemize}
+    % \begin{equation}
+    % 	f(\tau|\lambda,\theta_1,\theta_2) =
+    % 	\begin{cases}
+    % 		\frac{(\theta_1 - \tau)^{-\lambda}}{(\theta_1 - \theta_2)^{1-\lambda}B(1, 1-\lambda)} & \text{if} \lambda \leq 0 \\
+    % 		\frac{(\tau - \theta_2)^{\lambda}}{(\theta_1 - \theta_2)^{1+\lambda}B(1+\lambda, 1)}  & \text{if} \lambda > 0
+    % 	\end{cases}
+    % 	\label{eq:three-par-beta}
+    % \end{equation} \pause
+
+    Usage of MCMC algorithms provided by Turing.jl (Ge et al., 2018; Fjelde et al. 2025);
   }
-
-	Likelihood: Three-parameter Beta distribution (ref.):
-  \begin{itemize}
-    \item $\theta_1$ and $\theta_2$: endpoints;
-    \item $\lambda$: "skewness";
-  \end{itemize}
-	% \begin{equation}
-	% 	f(\tau|\lambda,\theta_1,\theta_2) =
-	% 	\begin{cases}
-	% 		\frac{(\theta_1 - \tau)^{-\lambda}}{(\theta_1 - \theta_2)^{1-\lambda}B(1, 1-\lambda)} & \text{if} \lambda \leq 0 \\
-	% 		\frac{(\tau - \theta_2)^{\lambda}}{(\theta_1 - \theta_2)^{1+\lambda}B(1+\lambda, 1)}  & \text{if} \lambda > 0
-	% 	\end{cases}
-	% 	\label{eq:three-par-beta}
-	% \end{equation} \pause
-
-	Usage of MCMC algorithms provided by Turing (ref.);
 \end{frame}
 
 \begin{frame}
@@ -151,16 +151,16 @@
     {15}
     {assets/FourPar/}
     {000}{114}
+
+    Besides $\theta_1$ and $\theta_2$ \
+    \begin{itemize}
+      \item Going back to $\alpha$ and $\beta$ for shape;
+    \end{itemize}
+
+    More parameters = harder to converge
+
+    But greater variety of curves!
   }
-
-  Besides $\theta_1$ and $\theta_2$ \
-  \begin{itemize}
-    \item Going back to $\alpha$ and $\beta$ for shape;
-  \end{itemize}
-
-	More parameters = harder to converge
-
-	But greater variety of curves!
 \end{frame}
 
 \begin{frame}
@@ -607,7 +607,8 @@
     \end{column}
     \begin{column}{0.5\textwidth}
       \onslide<1->{
-        \includegraphics[width=\textwidth]{assets/phylogeny.pdf}
+      \includegraphics[width=\textwidth]{assets/phylogeny.pdf} \\
+      \centering Phylogeny based on Oliveira (2025)
       }
     \end{column}
   \end{columns}
@@ -627,7 +628,7 @@
       \end{itemize}
     \end{column}
     \begin{column}{0.45\textwidth}
-      All data was sampled from the PaleoBiology DataBase (ref);
+      All data was sampled from the PaleoBiology DataBase (Uhen et al. 2026);
       \vspace{1em}
       \includegraphics[width=0.8\textwidth]{assets/pbdb.png}
     \end{column}
