@@ -38,7 +38,7 @@
   \begin{columns}
 
   \begin{column}{0.45\textwidth}
-    \includegraphics[width=\textwidth]{assets/paleontologists.jpg} \pause
+    \includegraphics[width=0.75\textwidth]{assets/stratinterval.jpg} \pause
   \end{column}
   \begin{column}{0.45\textwidth}
 	\begin{itemize}
@@ -112,7 +112,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{The StratIntervals.jl package}
+	\frametitle{The StratIntervals.jl package (Ballen, 2025)}
 
   \centering{
     \animategraphics
@@ -121,10 +121,10 @@
     {assets/ThreePar/}
     {000}{159}
 
-    Likelihood: Three-parameter Beta distribution (Wang et al., 2016):
+    Likelihood: Three-parameter Beta distribution
     \begin{itemize}
       \item $\theta_1$ and $\theta_2$: endpoints;
-      \item $\lambda$: "skewness";
+      \item $\lambda$: shape;
     \end{itemize}
     % \begin{equation}
     % 	f(\tau|\lambda,\theta_1,\theta_2) =
@@ -166,7 +166,7 @@
 \begin{frame}
 	\frametitle{Objectives of this work} \pause
 
-	Test the inference power of the four-parameter Beta distribution in endpoint estimation \pause
+	Test the inference power of the StratIntervals.jl package using the four-parameter Beta distribution as a likelihood function \pause
 
 	\begin{itemize}
 		\item Does it converge as easily as the three-parameter variant? \pause
@@ -583,27 +583,18 @@
 
   \begin{columns}
     \begin{column}{0.5\textwidth}
+      \begin{itemize}
       \onslide<2->{
-        Superorder of freshwater bony fish
+        \item Second largest superorder of bony fish;
       }
-
       \onslide<3->{
-        \begin{itemize}
-          \item Characiformes (pacus and piranhas);
-          \item Siluriformes (catfishes and plecos);
-          \item Gymnotiformes (electric fish);
-          \item Cypriniformes (carps);
-          \item Gonorynchiformes (milkfish);
-        \end{itemize}
+      \item Great economic importance;
       }
-
       \onslide<4->{
-        Also part of the greater clade Otocephala, which includes:
-        \begin{itemize}
-          \item Clupeomorpha (anchovies);
-          \item Alepocephali (slickheads);
-        \end{itemize}
+      \item Part of the larger cohort Otocephala;
       }
+      \end{itemize}
+
     \end{column}
     \begin{column}{0.5\textwidth}
       \onslide<1->{
@@ -620,8 +611,8 @@
   \begin{columns}
     \begin{column}{0.45\textwidth}
       \begin{itemize}
-        \item The origins of each order (except Gymnotiformes); \pause
-        \item The origins of Ostariophysi and Otocephala as a whole; \pause
+        \item The origins of both Ostariophysi and Otocephala; \pause
+        \item Using both the 3 and 4 paramter versions; \pause
         \item Exponential priors; \pause
         \item Parameter $\theta_2$ (time of extinction) always fixed in the present; \pause
         \item Filtering out data with same time range and locality; \pause
@@ -629,8 +620,10 @@
     \end{column}
     \begin{column}{0.45\textwidth}
       All data was sampled from the PaleoBiology DataBase (Uhen et al. 2026);
+
       \vspace{1em}
-      \includegraphics[width=0.8\textwidth]{assets/pbdb.png}
+
+      \includegraphics[width=0.7\textwidth]{assets/pbdb.png}
     \end{column}
   \end{columns}
 
@@ -640,15 +633,8 @@
 	\frametitle{Results} \pause
 
 	\begin{itemize}
-		\item All analyses converged (ESS > 1000;); \pause
-		      \begin{itemize}
-			      \item Except for Gonorynchiformes when using four parameters (ESS of tail > 400); \pause
-		      \end{itemize}
+		\item All analyses converged (ESS > 1000); \pause
 		\item Posterior probabilities (PP) indicate the four-parameter model as the best to fit the data with $\approx100\%$ probability; \pause
-		      \begin{itemize}
-			      \item Except for two cases: Characiformes and Gonorynchiformes; \pause
-		      \end{itemize}
-		\item Almost all groups with origins predicted in the Late Jurassic-Early Cretaceous;
 	\end{itemize}
 \end{frame}
 
@@ -717,23 +703,43 @@
 \begin{frame}
 	\frametitle{Results}
 
-  % \begin{columns}
-    % \begin{column}{0.45\textwidth}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
     \centering{
-      \includesvg[width=0.5\textwidth,inkscapelatex=false]{assets/ostariophysi.svg} \\
-      \ $\theta_1$ = 256.04 MA \\ (95\% CI: 194.48 -- 345.15 MA)
+      4 parameters: \\
+      \includesvg[width=\textwidth,inkscapelatex=false]{assets/ostariophysi_four.svg} \\
+      \ $\theta_1$ = 256.04 MA \\ (95\% HPDI: 194.48 -- 345.15 MA)
     }
-    % \end{column}
-    % \begin{column}{0.45\textwidth}
-    %   \centering{
-    %     MPP: 180.44 MA
-    %
-    %     95\% CI: 155.04-226.05 MA
-    %   }
-    %
-    %   \includesvg[width=\textwidth,inkscapelatex=false]{assets/otocephala.svg}
-    % \end{column}
-  % \end{columns}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \centering{
+      3 parameters: \\
+      \includesvg[width=\textwidth,inkscapelatex=false]{assets/ostariophysi_three.svg} \\
+      \ $\theta_1$ = 359.82 MA \\ (95\% HPDI: 298.40 -- 430.42 MA)
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Results}
+
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+    \centering{
+      4 parameters: \\
+      \includesvg[width=\textwidth,inkscapelatex=false]{assets/otocephala_four.svg} \\
+      \ $\theta_1$ = 180.44 MA \\ (95\% HPDI: 155.04 -- 226.05 MA)
+    }
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \centering{
+      3 parameters: \\
+      \includesvg[width=\textwidth,inkscapelatex=false]{assets/otocephala_three.svg} \\
+      \ $\theta_1$ = 402.82 MA \\ (95\% HPDI: 326.28 -- 487.37 MA)
+      }
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % \begin{frame}
